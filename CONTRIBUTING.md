@@ -1,41 +1,54 @@
-# Contributing Guidelines
+# How to Contribute
 
-Thank you for your interest in contributing to an OWASP project. We welcome all contributions and appreciate your efforts to improve our projects.
+When contributing to this repository, please first discuss the change you wish to make via submitting an issue with the owners of this repository before making a change. Fixing typos or rephrasing for better understanding DO NOT require discussion.
 
-## Getting Started
+## Branching Model
 
-To get started with contributing to any OWASP project, please follow these steps:
+This repository holds two main branches with an infinite lifetime:
 
-1. [Join](http://owasp.org/slack/invite) the [OWASP Slack workspace](https://owasp.slack.com) to connect with the OWASP community and get help with any questions you may have.
+* `master` is the default branch which always reflects the latest release.
+* `develop` is the main branch reflecting the latest delivered changes for the next release. When the `develop` branch reaches a stable point and is ready to be released, then all changes should be merged back into `master`.
 
-2. Review the [OWASP Projects](https://owasp.org/projects/) page to browse the list of OWASP projects and find a project that aligns with your interests and skills.
+A variety of supporting branches are used to aid parallel development. These branches have a limited lifespan, since they will be removed eventually.
 
-3. Visit the project's individual page and repository to familiarize yourself with the project goals and objectives.
+## Contributing
 
-4. Fork the repository and clone it to your local machine.
+Contributions to this repository are welcome. For ease of managing, please follow the steps below:
 
-5. Install any necessary dependencies and set up your development environment.
+1.  Fork this repository to your account.
 
-6. Make your changes and test them locally to ensure they work as expected.
+2.  Clone your copy of this repository, locally.
 
-7. Submit a pull request with your changes.
+    ```
+    git clone https://github.com/YOU/www-project-top-10-for-maritime-security.git
+    ```
 
-## Pull Request Guidelines
+3.  Create a new branch based on `develop` (e.g., `fix/foreword-section`).
 
-Before submitting a pull request, please make sure:
+    ```
+    git checkout develop && git checkout -b fix/foreword-section
+    ```
 
-1. Your changes are consistent with the project's goals and objectives.
+4.  Apply your changes.
 
-2. Your changes are well-documented and follow the project's coding standards.
+    Please, always follow our style conventions.
 
-3. Your changes do not introduce new bugs or break existing functionality.
+    Although there's an [`.editorconfig` file][1] on repository's root,your editor may not support it. To learn more about [EditorConfig][2] and text editors/IDEs support, check the website: https://editorconfig.org/.
+    You can preview your changes, [rendering the web site locally][4].
 
-4. Your changes are accompanied by tests, if applicable.
+5.  Commit your changes.
 
-5. Your pull request includes a clear and concise description of the changes you have made.
+    1.  Check modified files and add only required ones (e.g., build artifacts SHOULD NOT be tracked).
+    2.  The first line of the commit message should provide a brief description of your changes. You can go into more details on the optional commit message body.
 
-## Code of Conduct
+6.  Push changes to your public repository.
 
-We ask that all contributors to OWASP projects abide by our [Code of Conduct](https://owasp.org/www-policy/operational/code-of-conduct). This code outlines our expectations for behavior within the project community and helps us maintain a welcoming and inclusive environment for all contributors.
+    ```
+    git push origin fix/foreword-section
+    ```
 
-Thank you for your interest in contributing to an OWASP project. We appreciate your efforts to help us improve and grow our projects.
+7.  Open a Pull Request from your `fix/foreword-section` to the upstream
+    repository `develop` branch.
+
+[1]: https://github.com/OWASP/www-project-top-10-for-maritime-security/blob/master/.editorconfig
+[2]: https://editorconfig.org/
