@@ -10,7 +10,7 @@ pitch: A very brief, one-line description of your project
 ---
 # [OWASP Top 10 for Maritime Security][2]
 
-![alt text][7]
+![Logo](/assets/images/icon.jpeg)
 
 This project aims to develop an OWASP Top 10 list specifically tailored to the maritime industry.  Currently, maritime cybersecurity lacks well-defined standards, and this project leverages the OWASP framework to address this gap.
 
