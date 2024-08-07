@@ -8,7 +8,6 @@ type: documentation
 pitch: A very brief, one-line description of your project
 
 ---
-
 # [OWASP Top 10 for Maritime Security][2]
 
 ![alt text][7]
@@ -38,15 +37,12 @@ Deliverables and Outreach: Finalize all project deliverables, prepare for dissem
 ### Get Involved
 We invite maritime security experts, researchers, and industry practitioners to contribute to this project. Your expertise is invaluable in identifying and addressing the most critical security challenges facing the maritime industry.
 
-We've begun the first phase of our project: gathering data on maritime security vulnerabilities. We're inviting everyone to contribute publicly available information to our project. You can upload your data to the public section of our data collection area.
-
-If you have data that includes sensitive information but can be shared publicly after removing private details, please upload it to the private section. We'll review this data to determine if it can be made public.
-
 [https://github.com/OWASP/www-project-top-10-for-maritime-security/blob/master/CONTRIBUTING.md][4]
 
 ## Project Leaders
 
 * [Faiz Ahmed Zaidi][0]
+
 
 ## Licensing
 
@@ -61,4 +57,3 @@ The OWASP Top 10 for Maritime Security Project is licensed under the [Creative C
 [4]: https://github.com/OWASP/www-project-top-10-for-maritime-security/blob/master/CONTRIBUTING.md
 [6]: mailto:faiz.ahmedzaidi@owasp.org
 [7]: assets\images\icon.jpeg
-
