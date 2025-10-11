@@ -1,0 +1,20 @@
+audience:
+  - breaker
+  - builder
+leaders:
+  - name: Faiz Ahmed Zaidi
+    email: Faiz.AhmedZaidi@owasp.org
+    github: faizzaidi
+level: 2
+name: OWASP Top 10 for Maritime Security
+pitch: A very brief, one-line description of your project
+repositories:
+  - name: www-project-top-10-for-maritime-security
+    url: https://github.com/OWASP/www-project-top-10-for-maritime-security
+    description: OWASP Foundation web repository
+tags:
+  - example-tag
+  - custom-tag-1
+  - custom-tag-2
+type: documentation
+website: https://owasp.org/www-project-top-10-for-maritime-security
