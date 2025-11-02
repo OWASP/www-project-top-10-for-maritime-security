@@ -1,0 +1,563 @@
+---
+# OWASP Maritime Cybersecurity Vulnerability Database
+# Version: 1.0
+# Last Updated: 2025
+# 
+# This database catalogs cybersecurity vulnerabilities specific to maritime operations,
+# infrastructure, and systems. Data is synthesized from IMO guidelines, USCG alerts,
+# IACS recommendations, and industry incident reports.
+
+vulnerabilities:
+
+  - id: MAR-001
+    name: "GNSS/GPS Spoofing and Jamming"
+    category: "Navigation Systems"
+    severity: "Critical"
+    cvss_score: 9.1
+    description: |
+      Global Navigation Satellite System (GNSS) spoofing involves transmitting false signals 
+      to deceive navigation receivers, causing vessels to navigate to incorrect positions. 
+      Jamming disrupts GPS signals entirely. Both attacks can lead to groundings, collisions, 
+      or route manipulation without crew awareness.
+    affected_systems:
+      - "GPS/GNSS receivers"
+      - "Electronic Chart Display and Information Systems (ECDIS)"
+      - "Automatic Identification System (AIS)"
+      - "Dynamic Positioning systems"
+      - "Autopilot systems"
+    attack_vectors:
+      - "Broadcast of counterfeit GPS signals"
+      - "RF interference and jamming equipment"
+      - "Meaconing (rebroadcast of delayed signals)"
+    impact:
+      safety: "High - Risk of collision, grounding, entering restricted areas"
+      operational: "Critical - Loss of navigation capability"
+      financial: "High - Vessel delays, potential incidents, insurance claims"
+      environmental: "High - Risk of environmental damage from groundings"
+    exploitability: "Medium - Equipment available commercially, requires proximity"
+    prevalence: "High - Documented incidents in Black Sea, Persian Gulf, South China Sea"
+    detection_difficulty: "High - Often undetected until position verification"
+    mitigation:
+      - "Multi-GNSS constellation reception (GPS, GLONASS, Galileo, BeiDou)"
+      - "Integration with alternative navigation methods (radar, visual, celestial)"
+      - "GNSS signal authentication and integrity monitoring"
+      - "Cross-checking position with AIS, radar, and visual observations"
+      - "Crew training on GNSS spoofing indicators"
+    references:
+      - "IMO MSC-FAL.1/Circ.3/Rev.2"
+      - "IACS Rec. 166"
+      - "US Coast Guard Maritime Cyber Alerts"
+    related_incidents:
+      - "Black Sea GPS spoofing incidents (2017-present)"
+      - "Persian Gulf navigation interference (2019-2020)"
+    cwe_mapping: "CWE-345: Insufficient Verification of Data Authenticity"
+
+  - id: MAR-002
+    name: "ECDIS Malware and System Compromise"
+    category: "Navigation Systems"
+    severity: "Critical"
+    cvss_score: 8.8
+    description: |
+      Electronic Chart Display and Information System (ECDIS) compromise through malware 
+      infection, typically via USB drives, software updates, or network connections. 
+      Compromised ECDIS can display false chart data, incorrect vessel positions, 
+      or fail entirely during critical navigation.
+    affected_systems:
+      - "ECDIS workstations"
+      - "Integrated Bridge Systems (IBS)"
+      - "Navigation data networks"
+    attack_vectors:
+      - "Infected USB drives for chart updates"
+      - "Compromised software update packages"
+      - "Malware via shore-to-ship network connections"
+      - "Unpatched vulnerabilities in ECDIS software"
+    impact:
+      safety: "Critical - False navigation data can cause collisions or groundings"
+      operational: "High - Loss of primary navigation system"
+      financial: "High - System replacement, incident costs"
+      regulatory: "High - SOLAS compliance violations if ECDIS unavailable"
+    exploitability: "Medium - Requires access to update media or network"
+    prevalence: "Medium - Multiple documented cases of ECDIS malware"
+    detection_difficulty: "Medium - Antivirus often disabled, minimal monitoring"
+    mitigation:
+      - "USB drive scanning and control procedures"
+      - "Obtain chart updates only from authorized sources"
+      - "Network segmentation between ECDIS and general IT networks"
+      - "Regular security updates and patch management"
+      - "Antivirus software compatible with ECDIS systems"
+      - "Backup navigation systems and paper charts"
+    references:
+      - "IMO Resolution MSC.428(98)"
+      - "BIMCO Guidelines on Cyber Security Onboard Ships"
+      - "DNV GL Class Guideline DNVGL-CG-0264"
+    related_incidents:
+      - "NotPetya ransomware affecting shipping companies (2017)"
+      - "Multiple ECDIS malware infections reported by port state control"
+    cwe_mapping: "CWE-494: Download of Code Without Integrity Check"
+
+  - id: MAR-003
+    name: "AIS Spoofing and Manipulation"
+    category: "Communication Systems"
+    severity: "High"
+    cvss_score: 7.5
+    description: |
+      Automatic Identification System (AIS) spoofing involves transmitting false vessel 
+      identification, position, course, and speed information. Attackers can create 
+      phantom vessels, hide real vessels, or manipulate vessel tracks to cause confusion, 
+      support illicit activities, or create collision risks.
+    affected_systems:
+      - "AIS transceivers"
+      - "Vessel Traffic Services (VTS)"
+      - "Collision avoidance systems"
+      - "Maritime domain awareness platforms"
+    attack_vectors:
+      - "Transmission of counterfeit AIS messages"
+      - "AIS message injection and replay attacks"
+      - "Compromised AIS transponders"
+      - "Software-defined radio (SDR) based AIS transmission"
+    impact:
+      safety: "High - Risk of collision due to false vessel information"
+      operational: "Medium - Confusion in traffic management"
+      financial: "Medium - Potential for smuggling, sanctions evasion"
+      security: "High - Enables illicit maritime activities"
+    exploitability: "High - Low-cost SDR equipment can transmit AIS"
+    prevalence: "High - Widespread AIS spoofing documented globally"
+    detection_difficulty: "Medium - Requires correlation with radar, satellite data"
+    mitigation:
+      - "Cross-reference AIS with radar and visual observations"
+      - "Satellite-based AIS monitoring for anomaly detection"
+      - "AIS message authentication (future capability)"
+      - "VTS operator training on AIS spoofing indicators"
+      - "Integration with other sensor data for verification"
+    references:
+      - "IMO MSC-FAL.1/Circ.3/Rev.2"
+      - "IAPH Port Community Cyber Security Report"
+    related_incidents:
+      - "Phantom vessel incidents in conflict zones"
+      - "AIS manipulation for sanctions evasion"
+      - "False tanker positions near oil terminals"
+    cwe_mapping: "CWE-290: Authentication Bypass by Spoofing"
+
+  - id: MAR-004
+    name: "Ransomware Attacks on Maritime Infrastructure"
+    category: "Malware"
+    severity: "Critical"
+    cvss_score: 9.2
+    description: |
+      Ransomware targeting maritime organizations encrypts critical systems including 
+      port operations, vessel management, cargo systems, and corporate networks. 
+      Attacks can halt port operations, prevent vessel movements, and disrupt 
+      global supply chains.
+    affected_systems:
+      - "Port management systems"
+      - "Terminal operating systems (TOS)"
+      - "Cargo handling systems"
+      - "Corporate IT networks"
+      - "Fleet management systems"
+      - "Vessel administrative systems"
+    attack_vectors:
+      - "Phishing emails with malicious attachments"
+      - "Exploitation of unpatched vulnerabilities"
+      - "Compromised Remote Desktop Protocol (RDP) connections"
+      - "Supply chain compromise"
+      - "Infected removable media"
+    impact:
+      safety: "Medium - Indirect safety impact from operational disruption"
+      operational: "Critical - Complete shutdown of port or vessel operations"
+      financial: "Critical - Ransom demands, downtime costs, recovery expenses"
+      reputation: "High - Public disclosure, customer confidence loss"
+    exploitability: "High - Ransomware-as-a-Service widely available"
+    prevalence: "Critical - Multiple major incidents affecting maritime sector"
+    detection_difficulty: "Low - Usually detected when encryption occurs"
+    mitigation:
+      - "Regular offline backups with tested restoration procedures"
+      - "Email security and anti-phishing training"
+      - "Network segmentation between OT and IT systems"
+      - "Patch management and vulnerability scanning"
+      - "Endpoint detection and response (EDR) solutions"
+      - "Incident response plan with ransomware scenarios"
+      - "Disable or secure RDP access"
+    references:
+      - "US Coast Guard Maritime Cyber Alert 02-23 (BLACKBASTA)"
+      - "CISA #StopRansomware advisories"
+      - "Cost of Data Breach Report 2024"
+    related_incidents:
+      - "NotPetya attack on Maersk (2017) - $300M+ losses"
+      - "Mediterranean Shipping Company (MSC) ransomware (2020)"
+      - "Port of San Diego ransomware (2018)"
+      - "CL0P ransomware gang exploiting MOVEit vulnerability (2023)"
+    cwe_mapping: "CWE-311: Missing Encryption of Sensitive Data"
+
+  - id: MAR-005
+    name: "Phishing and Social Engineering"
+    category: "Human Factors"
+    severity: "High"
+    cvss_score: 8.1
+    description: |
+      Targeted phishing campaigns against maritime personnel, including vessel crew, 
+      port staff, and corporate employees. Attacks use social engineering to obtain 
+      credentials, deploy malware, or facilitate wire fraud and business email compromise.
+    affected_systems:
+      - "Email systems"
+      - "User workstations"
+      - "Authentication systems"
+      - "Financial systems"
+    attack_vectors:
+      - "Spear phishing emails impersonating legitimate entities"
+      - "Credential harvesting via fake login pages"
+      - "Business Email Compromise (BEC) targeting finance departments"
+      - "Malicious attachments (documents, executables)"
+      - "SMS phishing (smishing) targeting crew"
+    impact:
+      safety: "Low - Direct safety impact minimal"
+      operational: "High - Can lead to network compromise and malware deployment"
+      financial: "Critical - BEC fraud, wire transfer fraud"
+      data: "High - Credential theft, data exfiltration"
+    exploitability: "Very High - Low technical barrier, high success rate"
+    prevalence: "Critical - Most common initial attack vector in maritime"
+    detection_difficulty: "High - Sophisticated phishing difficult to detect"
+    mitigation:
+      - "Security awareness training for all personnel"
+      - "Email filtering and anti-phishing tools"
+      - "Multi-factor authentication (MFA) on all accounts"
+      - "Verification procedures for financial transactions"
+      - "Simulated phishing exercises"
+      - "Reporting mechanisms for suspicious emails"
+      - "DMARC, SPF, and DKIM email authentication"
+    references:
+      - "CISA Phishing Guidance - Stopping the Attack Cycle at Phase One"
+      - "US Coast Guard Maritime Cyber Bulletins"
+      - "NIST SP 800-63B - Digital Identity Guidelines"
+    related_incidents:
+      - "Numerous BEC attacks on shipping companies"
+      - "Credential theft leading to ransomware deployment"
+    cwe_mapping: "CWE-1390: Weak Authentication"
+
+  - id: MAR-006
+    name: "Unpatched and Legacy Systems"
+    category: "Configuration Management"
+    severity: "High"
+    cvss_score: 8.4
+    description: |
+      Maritime vessels and port facilities often operate legacy systems that are 
+      unpatched, unsupported, or running obsolete operating systems and software. 
+      These systems contain known vulnerabilities that can be exploited for 
+      initial access or lateral movement.
+    affected_systems:
+      - "Windows XP/7 systems still in operation"
+      - "Unsupported ECDIS software versions"
+      - "Legacy programmable logic controllers (PLCs)"
+      - "Outdated vessel management systems"
+      - "End-of-life network equipment"
+    attack_vectors:
+      - "Exploitation of published CVEs"
+      - "Worms and malware targeting known vulnerabilities"
+      - "Remote code execution via unpatched services"
+    impact:
+      safety: "Medium - Potential control system compromise"
+      operational: "High - System compromise and malware spread"
+      financial: "High - Incident response and system replacement costs"
+      compliance: "Medium - Regulatory violations"
+    exploitability: "High - Exploit code publicly available for many vulnerabilities"
+    prevalence: "Critical - Extremely common in maritime operational technology"
+    detection_difficulty: "Low - Vulnerability scanning can identify"
+    mitigation:
+      - "Asset inventory and vulnerability management program"
+      - "Patch management policy with testing procedures"
+      - "Network segmentation and isolation of legacy systems"
+      - "Compensating controls where patching not possible"
+      - "System lifecycle planning and upgrade roadmaps"
+      - "Virtual patching through network security devices"
+    references:
+      - "IMO MSC-FAL.1/Circ.3/Rev.2"
+      - "NIST SP 800-82r3 - Industrial Control Systems Security"
+      - "IACS Rec. 166"
+    related_incidents:
+      - "WannaCry ransomware targeting unpatched Windows systems (2017)"
+      - "NotPetya exploiting EternalBlue vulnerability"
+    cwe_mapping: "CWE-1104: Use of Unmaintained Third Party Components"
+
+  - id: MAR-007
+    name: "Insecure Remote Access"
+    category: "Access Control"
+    severity: "Critical"
+    cvss_score: 9.4
+    description: |
+      Remote access to vessel and port systems for maintenance, troubleshooting, 
+      and monitoring often lacks proper security controls. Weak or default passwords, 
+      unencrypted connections, and inadequate authentication enable unauthorized access.
+    affected_systems:
+      - "Remote Desktop Protocol (RDP) services"
+      - "VNC and other remote support tools"
+      - "Vendor remote maintenance connections"
+      - "Satellite communications (VSAT) for shore connectivity"
+      - "TeamViewer and similar remote access software"
+    attack_vectors:
+      - "Brute force attacks on RDP with weak passwords"
+      - "Exploitation of RDP vulnerabilities (e.g., BlueKeep)"
+      - "Compromised vendor remote access credentials"
+      - "Unsecured satellite communications"
+      - "Man-in-the-middle attacks on unencrypted connections"
+    impact:
+      safety: "High - Remote control of critical systems possible"
+      operational: "Critical - Full system compromise"
+      financial: "High - Ransomware deployment, data theft"
+      data: "High - Exfiltration of sensitive information"
+    exploitability: "Very High - Automated scanning and exploitation common"
+    prevalence: "High - Remote access widely used, often poorly secured"
+    detection_difficulty: "Medium - Can be logged but often not monitored"
+    mitigation:
+      - "Disable RDP and remote access when not required"
+      - "VPN with multi-factor authentication for remote access"
+      - "Strong, unique passwords and credential management"
+      - "Network segmentation and firewall rules"
+      - "Remote access logging and monitoring"
+      - "Time-limited vendor access with escort requirements"
+      - "Encrypted connections (TLS/SSH) for all remote access"
+    references:
+      - "US Coast Guard Maritime Cyber Alerts"
+      - "NIST SP 800-63B"
+      - "IMO Guidelines on Cyber Security Onboard Ships"
+    related_incidents:
+      - "Multiple ransomware incidents via compromised RDP"
+      - "Unauthorized vessel access via vendor credentials"
+    cwe_mapping: "CWE-306: Missing Authentication for Critical Function"
+
+  - id: MAR-008
+    name: "Supply Chain Compromise"
+    category: "Supply Chain"
+    severity: "High"
+    cvss_score: 8.6
+    description: |
+      Compromise of maritime supply chain including software, hardware, and services 
+      from vendors and third parties. Attackers may insert malware, backdoors, or 
+      vulnerabilities into products before delivery to maritime operators.
+    affected_systems:
+      - "ECDIS and navigation software"
+      - "Vessel management systems"
+      - "Automation and control systems"
+      - "Third-party integrated systems"
+      - "Software updates and patches"
+    attack_vectors:
+      - "Trojanized software from compromised vendors"
+      - "Backdoored hardware components"
+      - "Compromised software update mechanisms"
+      - "Malicious code in third-party libraries"
+      - "Counterfeit components with vulnerabilities"
+    impact:
+      safety: "High - Potential compromise of safety-critical systems"
+      operational: "High - Widespread deployment of compromised systems"
+      financial: "High - System replacement, incident response"
+      trust: "Critical - Erosion of vendor trust"
+    exploitability: "Low - Sophisticated attack requiring supply chain access"
+    prevalence: "Medium - Known incidents in maritime and other sectors"
+    detection_difficulty: "Very High - Often undetected for extended periods"
+    mitigation:
+      - "Vendor security assessments and due diligence"
+      - "Software composition analysis and bill of materials"
+      - "Code signing and integrity verification"
+      - "Secure software update processes"
+      - "Hardware authenticity verification"
+      - "Third-party risk management program"
+      - "Contractual security requirements for vendors"
+    references:
+      - "NIST SP 800-161 - Cybersecurity Supply Chain Risk Management"
+      - "IMO MSC-FAL.1/Circ.3/Rev.2"
+    related_incidents:
+      - "SolarWinds Orion supply chain attack (2020)"
+      - "Various incidents of compromised software updates"
+    cwe_mapping: "CWE-1357: Reliance on Insufficiently Trustworthy Component"
+
+  - id: MAR-009
+    name: "Insufficient Network Segmentation"
+    category: "Network Architecture"
+    severity: "High"
+    cvss_score: 8.2
+    description: |
+      Lack of proper network segmentation between operational technology (OT), 
+      information technology (IT), and external networks on vessels and in ports. 
+      Flat networks allow lateral movement from compromised IT systems to 
+      safety-critical OT systems.
+    affected_systems:
+      - "Integrated bridge systems"
+      - "Engine control systems"
+      - "Cargo management systems"
+      - "Administrative networks"
+      - "Guest Wi-Fi networks"
+      - "Shore-to-ship connections"
+    attack_vectors:
+      - "Lateral movement from IT to OT networks"
+      - "Malware spread across network segments"
+      - "Compromise via guest or crew networks"
+      - "Exploitation of flat network architecture"
+    impact:
+      safety: "Critical - IT compromise can reach safety systems"
+      operational: "High - Widespread network compromise"
+      containment: "High - Difficult to contain incidents"
+      compliance: "Medium - May violate classification society requirements"
+    exploitability: "High - Once on network, movement is easy"
+    prevalence: "Critical - Very common in maritime environments"
+    detection_difficulty: "Low - Network architecture review reveals"
+    mitigation:
+      - "Network segmentation following Purdue model"
+      - "Firewalls between IT, OT, and DMZ networks"
+      - "VLAN separation for different functions"
+      - "Air-gapping of critical safety systems where possible"
+      - "Intrusion detection systems at segment boundaries"
+      - "Least privilege network access policies"
+      - "Regular network architecture reviews"
+    references:
+      - "NIST SP 800-82r3"
+      - "IACS Rec. 166"
+      - "DNV GL Class Guideline DNVGL-CG-0264"
+    related_incidents:
+      - "NotPetya spread through Maersk network infrastructure"
+      - "Various incidents of OT compromise via IT networks"
+    cwe_mapping: "CWE-923: Improper Restriction of Communication Channel to Intended Endpoints"
+
+  - id: MAR-010
+    name: "Insider Threats and Inadequate Access Controls"
+    category: "Access Control"
+    severity: "High"
+    cvss_score: 7.8
+    description: |
+      Malicious or negligent insiders with authorized access to systems, including 
+      crew members, contractors, and vendors. Inadequate access controls and 
+      monitoring enable unauthorized actions, data theft, or sabotage.
+    affected_systems:
+      - "All vessel and port systems"
+      - "Administrative systems"
+      - "Financial systems"
+      - "Cargo and operational systems"
+    attack_vectors:
+      - "Abuse of privileged access"
+      - "Data exfiltration by authorized users"
+      - "Sabotage of systems or operations"
+      - "Credential sharing and misuse"
+      - "Lack of access revocation for departed personnel"
+    impact:
+      safety: "High - Potential for deliberate sabotage"
+      operational: "High - Disruption or data loss"
+      financial: "High - Theft, fraud, IP loss"
+      data: "Critical - Exfiltration of sensitive information"
+    exploitability: "Medium - Requires insider access"
+    prevalence: "Medium - Regular incidents but underreported"
+    detection_difficulty: "Very High - Authorized actions difficult to distinguish"
+    mitigation:
+      - "Principle of least privilege for all accounts"
+      - "Role-based access control (RBAC)"
+      - "User activity monitoring and logging"
+      - "Separation of duties for critical operations"
+      - "Background checks for personnel with system access"
+      - "Immediate access revocation upon personnel changes"
+      - "Security awareness and ethics training"
+      - "Data loss prevention (DLP) tools"
+    references:
+      - "IMO Guidelines on Cyber Security Onboard Ships"
+      - "NIST SP 800-53 - Security and Privacy Controls"
+    related_incidents:
+      - "Various insider data theft incidents"
+      - "Sabotage incidents in port and vessel operations"
+    cwe_mapping: "CWE-269: Improper Privilege Management"
+
+  - id: MAR-011
+    name: "Volt Typhoon and APT Targeting Critical Infrastructure"
+    category: "Advanced Persistent Threats"
+    severity: "Critical"
+    cvss_score: 9.3
+    description: |
+      Advanced Persistent Threat (APT) groups, including PRC-sponsored actors like 
+      Volt Typhoon, targeting maritime critical infrastructure using living-off-the-land 
+      techniques for espionage and pre-positioning for potential disruption.
+    affected_systems:
+      - "Port infrastructure networks"
+      - "Maritime transportation systems"
+      - "Communication infrastructure"
+      - "IT infrastructure supporting operations"
+    attack_vectors:
+      - "Living-off-the-land techniques using native system tools"
+      - "Exploitation of edge devices and network equipment"
+      - "Compromised credentials for initial access"
+      - "Long-term persistence with minimal detection footprint"
+      - "Exploitation of trust relationships"
+    impact:
+      safety: "Critical - Potential for coordinated disruption"
+      operational: "Critical - Espionage and pre-positioning for attacks"
+      national_security: "Critical - Strategic threat to maritime infrastructure"
+      data: "Critical - Exfiltration of sensitive operational data"
+    exploitability: "Low - Sophisticated, state-sponsored capabilities"
+    prevalence: "Medium - Targeted attacks on critical infrastructure"
+    detection_difficulty: "Very High - Designed to evade detection"
+    mitigation:
+      - "Enhanced monitoring of network and system activities"
+      - "Behavioral analytics and anomaly detection"
+      - "Regular credential rotation and MFA enforcement"
+      - "Network segmentation and micro-segmentation"
+      - "Threat intelligence integration"
+      - "Hardening of edge devices and network equipment"
+      - "Incident response capabilities and tabletop exercises"
+    references:
+      - "US Coast Guard Maritime Cyber Alert 01-23 (VOLT TYPHOON)"
+      - "CISA CSA - PRC State-Sponsored Cyber Living off the Land"
+      - "Microsoft Security Blog - Volt Typhoon"
+    related_incidents:
+      - "Volt Typhoon targeting US critical infrastructure (2023)"
+      - "Pre-positioning in telecommunications and maritime sectors"
+    cwe_mapping: "CWE-1188: Initialization of a Resource with an Insecure Default"
+
+  - id: MAR-012
+    name: "Insufficient Cybersecurity Awareness and Training"
+    category: "Human Factors"
+    severity: "High"
+    cvss_score: 7.6
+    description: |
+      Lack of cybersecurity awareness among maritime personnel, including bridge crew, 
+      engine room staff, port operators, and administrative personnel. Insufficient 
+      training leads to risky behaviors and inability to recognize or respond to 
+      cyber threats.
+    affected_systems:
+      - "All systems dependent on human interaction"
+      - "Email and communication systems"
+      - "Navigation and operation systems"
+    attack_vectors:
+      - "Successful phishing due to lack of awareness"
+      - "Unsafe handling of removable media"
+      - "Weak password practices"
+      - "Failure to report suspicious activities"
+      - "Unintentional policy violations"
+    impact:
+      safety: "Medium - Indirect through poor security practices"
+      operational: "High - Increased vulnerability to social engineering"
+      financial: "High - Susceptibility to fraud and BEC"
+      culture: "High - Weak security culture"
+    exploitability: "Very High - Exploiting untrained users is easiest attack"
+    prevalence: "Critical - Widespread lack of maritime cyber training"
+    detection_difficulty: "High - Hard to measure awareness levels"
+    mitigation:
+      - "Mandatory cybersecurity awareness training for all personnel"
+      - "Role-specific training (bridge crew, engine room, IT staff)"
+      - "Regular refresher training and updates"
+      - "Simulated phishing and social engineering exercises"
+      - "Clear cybersecurity policies and procedures"
+      - "Incident reporting culture and mechanisms"
+      - "Integration of cyber risk in Maritime Resource Management (MRM)"
+    references:
+      - "IMO Guidelines on Cyber Security Onboard Ships - Training requirements"
+      - "BIMCO Guidelines - Section on Crew Awareness"
+    related_incidents:
+      - "Multiple incidents stemming from lack of crew cyber awareness"
+    cwe_mapping: "CWE-1021: Improper Restriction of Rendered UI Layers"
+
+metadata:
+  version: "1.0"
+  last_updated: "2025-11-02"
+  total_vulnerabilities: 12
+  sources_analyzed: 34
+  coverage:
+    - "IMO Guidelines and Resolutions"
+    - "US Coast Guard Maritime Cyber Alerts and Bulletins"
+    - "IACS Recommendations"
+    - "DNV GL Class Guidelines"
+    - "IAPH Port Security Reports"
+    - "NIST Special Publications"
+    - "Real-world incident reports"
