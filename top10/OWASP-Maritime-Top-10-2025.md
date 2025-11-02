@@ -516,7 +516,9 @@ Maritime stakeholders must approach cybersecurity with the same rigor applied to
 **Next Update:** Q4 2026
 
 **Project Leader:** Faiz Ahmed Zaidi  
-**Contributors:** OWASP Maritime Security Community
+**Contributors:**  
+- OWASP Maritime Security Community  
+- Manish Tripathy ([usualdork](https://github.com/usualdork))
 
 **License:** Creative Commons Attribution-ShareAlike 4.0
 
