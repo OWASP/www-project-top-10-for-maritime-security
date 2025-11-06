@@ -11,7 +11,7 @@ threat_actors:
     aliases: 
       - "Vanguard Panda"
       - "Bronze Silhouette"
-    attribution: "People's Republic of China (PRC) State-Sponsored"
+    attribution: "REDACTED"
     first_observed: "Mid-2021"
     active: true
     sophistication: "Advanced"
@@ -49,7 +49,7 @@ threat_actors:
 
   - id: TA-002
     name: "BlackBasta Ransomware Group"
-    attribution: "Cybercriminal - Likely Russian-speaking"
+    attribution: "REDACTED"
     first_observed: "April 2022"
     active: true
     sophistication: "Intermediate to Advanced"
@@ -89,7 +89,7 @@ threat_actors:
     aliases:
       - "Cl0p"
       - "TA505"
-    attribution: "Cybercriminal - Likely Russian-speaking"
+    attribution: "REDACTED"
     first_observed: "February 2019"
     active: true
     sophistication: "Advanced"
@@ -130,7 +130,7 @@ threat_actors:
       - "Telebots"
       - "Voodoo Bear"
       - "Iron Viking"
-    attribution: "Russian GRU (Main Intelligence Directorate) - Unit 74455"
+    attribution: "REDACTED"
     first_observed: "2009"
     active: true
     sophistication: "Advanced"
@@ -167,7 +167,7 @@ threat_actors:
 
   - id: TA-005
     name: "Generic Ransomware-as-a-Service Operators"
-    attribution: "Various cybercriminal groups"
+    attribution: "REDACTED"
     active: true
     sophistication: "Varies (Low to Intermediate)"
     motivation:
@@ -201,7 +201,7 @@ threat_actors:
     aliases:
       - "Comment Group"
       - "Byzantine Candor"
-    attribution: "People's Republic of China - PLA Unit 61398"
+    attribution: "REDACTED"
     first_observed: "2006"
     active: "Status unclear"
     sophistication: "Advanced"
@@ -235,7 +235,7 @@ threat_actors:
 
   - id: TA-007
     name: "Iranian Cyber Actors"
-    attribution: "Various Iranian state-sponsored groups"
+    attribution: "REDACTED"
     active: true
     sophistication: "Intermediate to Advanced"
     motivation:
@@ -266,7 +266,7 @@ threat_actors:
 
   - id: TA-008
     name: "Insider Threats"
-    attribution: "Malicious or negligent insiders"
+    attribution: "REDACTED"
     active: "Ongoing risk"
     sophistication: "Varies"
     motivation:
