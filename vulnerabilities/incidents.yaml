@@ -13,7 +13,7 @@ incidents:
     organization_type: "Shipping Company"
     severity: "Critical"
     attack_type: "Ransomware / Wiper Malware"
-    threat_actor: "Sandworm (Russian GRU)"
+    threat_actor: "REDACTED"
     description: |
       NotPetya malware, initially targeting Ukrainian organizations, spread globally 
       affecting Maersk's entire IT infrastructure. All domain controllers and approximately 
@@ -253,7 +253,7 @@ incidents:
     organization_type: "Various - Shipping, ports, maritime services"
     severity: "Critical"
     attack_type: "Mass Exploitation of Zero-Day Vulnerability"
-    threat_actor: "CL0P Ransomware Gang"
+    threat_actor: "REDACTED"
     description: |
       Mass exploitation of zero-day vulnerability (CVE-2023-34362) in Progress 
       MOVEit Transfer software, affecting numerous organizations including 
