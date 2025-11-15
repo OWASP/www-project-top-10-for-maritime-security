@@ -1,0 +1,431 @@
+---
+# Maritime Cybersecurity Incidents Database
+# Version: 1.0
+# 
+# Documents real-world cyber incidents affecting the maritime sector
+
+incidents:
+
+  - id: INC-001
+    name: "Maersk NotPetya Ransomware Attack"
+    date: "2017-06-27"
+    organization: "A.P. Moller-Maersk"
+    organization_type: "Shipping Company"
+    severity: "Critical"
+    attack_type: "Ransomware / Wiper Malware"
+    threat_actor: "REDACTED"
+    description: |
+      NotPetya malware, initially targeting Ukrainian organizations, spread globally 
+      affecting Maersk's entire IT infrastructure. All domain controllers and approximately 
+      45,000 PCs were encrypted or destroyed. The attack brought container terminal 
+      operations to a halt across 76 ports worldwide.
+    affected_systems:
+      - "Corporate IT networks globally"
+      - "Port terminal operating systems"
+      - "Container tracking systems"
+      - "Email and communication systems"
+      - "Domain controllers and file servers"
+    impact:
+      operational: "Global shipping operations halted for days"
+      financial: "USD $300+ million in losses"
+      duration: "10 days for basic restoration, weeks for full recovery"
+      scope: "17 port terminals, 76 ports worldwide"
+    attack_vector: "Supply chain compromise via infected MeDoc accounting software update"
+    root_cause:
+      - "Lack of network segmentation"
+      - "Rapid lateral movement capabilities"
+      - "Insufficient backup and recovery procedures"
+    response_actions:
+      - "Complete infrastructure rebuild"
+      - "Manual operations at terminals"
+      - "Reinstallation of 4,000 servers and 45,000 PCs in 10 days"
+      - "Enhanced network segmentation implementation"
+    lessons_learned:
+      - "Critical importance of network segmentation between IT and OT"
+      - "Need for offline backups and tested disaster recovery"
+      - "Supply chain risk management essential"
+      - "Speed of modern malware requires rapid incident response"
+    recovery_time: "10 days (basic), several weeks (full)"
+    references:
+      - "Maersk 2017 Annual Report"
+      - "WIRED - The Untold Story of NotPetya"
+      - "US DOJ Sandworm indictment"
+
+  - id: INC-002
+    name: "MSC Mediterranean Shipping Company Ransomware"
+    date: "2020-04-08"
+    organization: "Mediterranean Shipping Company (MSC)"
+    organization_type: "Shipping Company"
+    severity: "High"
+    attack_type: "Ransomware"
+    description: |
+      Ransomware attack affecting MSC's IT infrastructure, disrupting operations 
+      at multiple offices and terminals. Company isolated affected systems to 
+      prevent spread while maintaining core operational capabilities.
+    affected_systems:
+      - "IT systems at multiple offices"
+      - "Terminal systems (isolated preventatively)"
+    impact:
+      operational: "Partial disruption, core operations maintained"
+      financial: "Undisclosed"
+      duration: "Several days for containment and recovery"
+    attack_vector: "Suspected phishing or exploitation of vulnerabilities"
+    response_actions:
+      - "Immediate network isolation of affected systems"
+      - "Activation of incident response team"
+      - "Preventative isolation of terminals to stop spread"
+    lessons_learned:
+      - "Importance of rapid isolation and containment"
+      - "Value of incident response planning"
+      - "Need for business continuity procedures"
+    references:
+      - "MSC public statements"
+      - "Industry reports on maritime cyber incidents"
+
+  - id: INC-003
+    name: "Port of San Diego Ransomware Attack"
+    date: "2018-09-25"
+    organization: "Port of San Diego"
+    organization_type: "Port Authority"
+    severity: "High"
+    attack_type: "Ransomware"
+    description: |
+      Ransomware attack targeting Port of San Diego's IT systems, affecting 
+      administrative functions while port operations continued. Attackers 
+      demanded ransom but port refused to pay and restored from backups.
+    affected_systems:
+      - "Administrative IT systems"
+      - "Email systems"
+      - "Document management systems"
+    impact:
+      operational: "Administrative disruption, port operations unaffected"
+      financial: "Recovery costs, no ransom paid"
+      duration: "Several days"
+      public_services: "Some public-facing services temporarily unavailable"
+    attack_vector: "Suspected phishing email"
+    root_cause:
+      - "Successful phishing attack on employee"
+      - "Insufficient email security controls"
+    response_actions:
+      - "Refused to pay ransom"
+      - "Isolated affected systems"
+      - "Restored systems from backups"
+      - "Engaged law enforcement and cybersecurity experts"
+    lessons_learned:
+      - "Backups enabled recovery without paying ransom"
+      - "Separation of port operations from IT systems prevented operational impact"
+      - "Importance of security awareness training"
+    recovery_time: "Several days"
+    references:
+      - "Port of San Diego public statements"
+      - "Local news reports"
+
+  - id: INC-004
+    name: "Port of Barcelona Ransomware Attack"
+    date: "2018-09-24"
+    organization: "Port of Barcelona"
+    organization_type: "Port Authority"
+    severity: "High"
+    attack_type: "Ransomware"
+    description: |
+      Cyber attack on Port of Barcelona's computer systems, specifically targeting 
+      the port's freight management system. The attack affected operations at 
+      one of the Mediterranean's busiest ports.
+    affected_systems:
+      - "Freight management and logistics systems"
+      - "Terminal operating systems"
+    impact:
+      operational: "Disruption to cargo handling and vessel operations"
+      duration: "Several days of reduced capacity"
+      scope: "Spain's third-largest port"
+    response_actions:
+      - "System isolation and containment"
+      - "Manual operations procedures activated"
+      - "Gradual restoration of systems"
+    lessons_learned:
+      - "Criticality of terminal operating systems"
+      - "Need for manual operation fallback procedures"
+      - "Importance of OT/IT segmentation"
+    references:
+      - "Port of Barcelona statements"
+      - "Maritime industry reports"
+
+  - id: INC-005
+    name: "COSCO Shipping Lines Ransomware Attack"
+    date: "2018-07-24"
+    organization: "COSCO Shipping Lines (Americas)"
+    organization_type: "Shipping Company"
+    severity: "High"
+    attack_type: "Ransomware"
+    description: |
+      Ransomware attack on COSCO's American operations affecting network systems 
+      and forcing manual processing of shipments. The attack disrupted booking 
+      and documentation processes.
+    affected_systems:
+      - "Email systems"
+      - "Booking systems"
+      - "Documentation processing systems"
+    impact:
+      operational: "Delays in booking and documentation"
+      duration: "Several days for basic recovery"
+      geographic: "US operations primarily affected"
+    response_actions:
+      - "Network isolation"
+      - "Manual processing of shipments"
+      - "System restoration"
+    lessons_learned:
+      - "Impact of IT disruption on logistics operations"
+      - "Value of alternative communication channels"
+    references:
+      - "COSCO public notices"
+      - "Shipping industry publications"
+
+  - id: INC-006
+    name: "Black Sea GPS Spoofing Campaign"
+    date: "2017-06 to Present"
+    organization: "Multiple vessels in Black Sea region"
+    organization_type: "Shipping - Multiple operators"
+    severity: "High"
+    attack_type: "GPS Spoofing"
+    description: |
+      Widespread GPS spoofing affecting vessels in the Black Sea, causing navigation 
+      receivers to show incorrect positions, sometimes placing vessels at airports 
+      or inland locations. Spoofing continues to affect the region.
+    affected_systems:
+      - "GPS/GNSS receivers"
+      - "ECDIS systems relying on GPS"
+      - "AIS transponders"
+      - "Dynamic positioning systems"
+    impact:
+      safety: "Navigation safety concerns"
+      operational: "Requires manual position verification and alternative navigation"
+      scope: "Hundreds of vessels affected over time"
+      geographic: "Black Sea region, particularly near conflict areas"
+    attack_vector: "Broadcast of counterfeit GPS signals"
+    attribution: "Suspected state-sponsored activity related to regional conflicts"
+    response_actions:
+      - "Mariners trained to recognize spoofing indicators"
+      - "Use of multiple navigation methods for verification"
+      - "Reporting to authorities"
+    lessons_learned:
+      - "Vulnerability of reliance on single navigation system"
+      - "Importance of multi-constellation GNSS and backup navigation"
+      - "Need for crew training on GPS spoofing indicators"
+    ongoing: true
+    references:
+      - "IMO circular on GNSS vulnerabilities"
+      - "US Maritime Administration advisories"
+      - "Academic research on GPS spoofing incidents"
+
+  - id: INC-007
+    name: "Persian Gulf GPS Interference"
+    date: "2019-2020"
+    organization: "Multiple commercial vessels"
+    organization_type: "Shipping - Multiple operators"
+    severity: "High"
+    attack_type: "GPS Jamming and Spoofing"
+    description: |
+      GPS jamming and spoofing incidents affecting commercial shipping in the 
+      Persian Gulf and Strait of Hormuz, causing navigation disruptions during 
+      regional tensions.
+    affected_systems:
+      - "GPS/GNSS navigation"
+      - "AIS systems"
+      - "ECDIS"
+    impact:
+      safety: "Navigation safety in high-traffic shipping lane"
+      operational: "Requires alternative navigation methods"
+      scope: "Multiple vessels and timeframes"
+      geopolitical: "Occurred during regional tensions"
+    attack_vector: "Electronic warfare systems jamming/spoofing GPS signals"
+    lessons_learned:
+      - "GPS vulnerability in geopolitically sensitive regions"
+      - "Importance of alternative navigation capabilities"
+      - "Need for maritime domain awareness"
+    references:
+      - "UKMTO (UK Maritime Trade Operations) warnings"
+      - "US Naval Institute reports"
+
+  - id: INC-008
+    name: "MOVEit Vulnerability Mass Exploitation (Maritime Sector Impact)"
+    date: "2023-05-31"
+    organization: "Multiple maritime organizations globally"
+    organization_type: "Various - Shipping, ports, maritime services"
+    severity: "Critical"
+    attack_type: "Mass Exploitation of Zero-Day Vulnerability"
+    threat_actor: "REDACTED"
+    description: |
+      Mass exploitation of zero-day vulnerability (CVE-2023-34362) in Progress 
+      MOVEit Transfer software, affecting numerous organizations including 
+      maritime sector entities. Data theft and extortion campaign.
+    affected_systems:
+      - "MOVEit Transfer file transfer systems"
+      - "Data repositories accessible via MOVEit"
+    impact:
+      data: "Mass data exfiltration"
+      scope: "Global, affecting multiple sectors including maritime"
+      privacy: "Exposure of sensitive and personal data"
+      financial: "Extortion demands, regulatory fines, remediation costs"
+    attack_vector: "Exploitation of SQL injection vulnerability in MOVEit Transfer"
+    root_cause:
+      - "Zero-day vulnerability in widely-used file transfer software"
+      - "Delayed detection and patching"
+    response_actions:
+      - "Emergency patching of MOVEit systems"
+      - "Investigation of potential data exfiltration"
+      - "Notification to affected parties"
+      - "Engagement with law enforcement"
+    lessons_learned:
+      - "Supply chain risk from third-party software vulnerabilities"
+      - "Speed of exploitation following vulnerability disclosure"
+      - "Importance of monitoring and rapid patching"
+      - "Data minimization and encryption importance"
+    references:
+      - "CISA Alert AA23-158A"
+      - "US Coast Guard cybersecurity bulletins"
+      - "#StopRansomware advisory"
+
+  - id: INC-009
+    name: "Port of Antwerp Cocaine Smuggling via Hacked Systems"
+    date: "2011-2013"
+    organization: "Port of Antwerp"
+    organization_type: "Port Authority"
+    severity: "High"
+    attack_type: "Hacking for Criminal Purposes"
+    description: |
+      Sophisticated hacking operation where criminal organizations compromised 
+      port systems to manipulate container release and tracking systems, 
+      facilitating drug smuggling. Hackers gained access to container terminal 
+      systems to release containers and delete records.
+    affected_systems:
+      - "Container terminal operating systems"
+      - "Container release and tracking systems"
+      - "Security and access control systems"
+    impact:
+      security: "Facilitation of drug smuggling operations"
+      integrity: "Manipulation of cargo handling and tracking records"
+      law_enforcement: "Undermined port security and customs controls"
+    attack_vector:
+      - "Hacking of port IT systems"
+      - "Insider collaboration with criminal organizations"
+      - "Physical installation of hacking devices in port infrastructure"
+    response_actions:
+      - "Law enforcement investigation and arrests"
+      - "Security review and enhancement of port systems"
+      - "Increased monitoring and access controls"
+    lessons_learned:
+      - "Risk of cyber-enabled traditional crime"
+      - "Importance of physical and logical access controls"
+      - "Need for insider threat programs"
+      - "Criticality of audit logging and monitoring"
+    references:
+      - "Belgian law enforcement reports"
+      - "Security industry case studies"
+
+  - id: INC-010
+    name: "Austal USA Cybersecurity Breach"
+    date: "2018-06"
+    organization: "Austal USA"
+    organization_type: "Shipbuilder"
+    severity: "High"
+    attack_type: "Data Breach"
+    description: |
+      Cybersecurity breach affecting Austal USA, a major defense contractor and 
+      shipbuilder. Hackers gained access to sensitive data including ship designs 
+      and proprietary information. The breach impacted both commercial and 
+      military vessel programs.
+    affected_systems:
+      - "Corporate IT networks"
+      - "Engineering and design systems"
+      - "Email systems"
+    impact:
+      data: "Theft of sensitive ship designs and proprietary information"
+      financial: "Stock price drop, recovery costs"
+      national_security: "Exposure of defense-related information"
+      reputation: "Public disclosure affected company reputation"
+    attack_vector: "Suspected nation-state or industrial espionage"
+    response_actions:
+      - "Engagement with law enforcement and intelligence agencies"
+      - "Forensic investigation"
+      - "Security enhancement measures"
+      - "Stakeholder notification"
+    lessons_learned:
+      - "Value of maritime intellectual property to adversaries"
+      - "Need for enhanced security in defense industrial base"
+      - "Importance of data protection for proprietary designs"
+    references:
+      - "Austal public disclosures"
+      - "US Navy and defense industry reports"
+
+  - id: INC-011
+    name: "Iranian Shipping Disruption Campaign"
+    date: "2020-2021"
+    organization: "Israeli-linked vessels and Middle East shipping"
+    organization_type: "Various shipping companies"
+    severity: "Medium to High"
+    attack_type: "Various cyber and physical attacks"
+    description: |
+      Series of cyber and cyber-physical attacks attributed to Iranian actors 
+      targeting vessels and maritime infrastructure, particularly those linked 
+      to Israel, as part of regional shadow war.
+    affected_systems:
+      - "Vessel communication systems"
+      - "AIS transponders"
+      - "Navigation systems"
+    impact:
+      safety: "Some incidents involved physical damage"
+      operational: "Disruptions to specific vessels and operations"
+      geopolitical: "Escalation of regional cyber conflict"
+    attack_vector:
+      - "AIS spoofing and manipulation"
+      - "Possible GPS interference"
+      - "Cyber-enabled physical attacks"
+    attribution: "Iranian state-sponsored or aligned actors"
+    lessons_learned:
+      - "Geopolitical risks to shipping in conflict regions"
+      - "Cyber as part of hybrid warfare affecting maritime"
+      - "Need for enhanced security in high-risk regions"
+    references:
+      - "Open-source intelligence reports"
+      - "Maritime security analyses"
+
+  - id: INC-012
+    name: "Carnival Corporation Ransomware Attack"
+    date: "2020-08"
+    organization: "Carnival Corporation"
+    organization_type: "Cruise Line"
+    severity: "High"
+    attack_type: "Ransomware"
+    description: |
+      Ransomware attack on Carnival Corporation affecting IT systems and resulting 
+      in data breach. Attack occurred during COVID-19 pandemic when cruise operations 
+      were already disrupted.
+    affected_systems:
+      - "Corporate IT systems"
+      - "Data repositories"
+    impact:
+      data: "Personal data of guests and employees accessed"
+      operational: "IT systems disruption"
+      regulatory: "Required breach notifications and disclosures"
+      financial: "Recovery and remediation costs"
+    response_actions:
+      - "Incident response activation"
+      - "Forensic investigation"
+      - "Notification to affected individuals"
+      - "Regulatory filings"
+    lessons_learned:
+      - "Cruise line industry as target for ransomware"
+      - "Data protection importance for customer information"
+      - "Need for comprehensive incident response"
+    references:
+      - "Carnival Corporation SEC filings"
+      - "Data breach notification records"
+
+metadata:
+  version: "1.0"
+  last_updated: "2025-11-02"
+  total_incidents: 12
+  note: |
+    This database includes documented maritime cyber incidents with sufficient 
+    public information. Many incidents go unreported or undisclosed. The actual 
+    number of maritime cyber incidents is likely significantly higher.

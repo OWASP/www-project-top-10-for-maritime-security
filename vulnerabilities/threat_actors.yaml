@@ -1,0 +1,307 @@
+---
+# Maritime Cybersecurity Threat Actors Database
+# Version: 1.0
+# 
+# Catalogs known threat actors and threat groups targeting the maritime sector
+
+threat_actors:
+
+  - id: TA-001
+    name: "Volt Typhoon"
+    aliases: 
+      - "Vanguard Panda"
+      - "Bronze Silhouette"
+    attribution: "REDACTED"
+    first_observed: "Mid-2021"
+    active: true
+    sophistication: "Advanced"
+    motivation:
+      - "Espionage"
+      - "Pre-positioning for disruption"
+      - "Critical infrastructure reconnaissance"
+    target_sectors:
+      - "Maritime ports and terminals"
+      - "Communications infrastructure"
+      - "Transportation systems"
+      - "Energy and utilities"
+    tactics:
+      - "Living-off-the-land techniques"
+      - "Credential theft and abuse"
+      - "Exploitation of edge network devices"
+      - "Long-term persistent access"
+    tools:
+      - "Native Windows commands and utilities"
+      - "PowerShell"
+      - "WMI (Windows Management Instrumentation)"
+      - "Custom tooling"
+    maritime_incidents:
+      - "Targeting of US maritime critical infrastructure (2023)"
+      - "Compromise of port infrastructure networks"
+    detection_indicators:
+      - "Unusual use of ntdsutil for credential access"
+      - "PowerShell execution with encoded commands"
+      - "Abnormal WMI usage patterns"
+      - "Lateral movement via SMB and RDP"
+    references:
+      - "US Coast Guard Maritime Cyber Alert 01-23"
+      - "CISA CSA: PRC State-Sponsored Cyber Living off the Land"
+      - "Microsoft Threat Intelligence - Volt Typhoon Report"
+
+  - id: TA-002
+    name: "BlackBasta Ransomware Group"
+    attribution: "REDACTED"
+    first_observed: "April 2022"
+    active: true
+    sophistication: "Intermediate to Advanced"
+    motivation:
+      - "Financial gain through ransomware"
+      - "Data extortion"
+    target_sectors:
+      - "Maritime and shipping companies"
+      - "Port operations"
+      - "Logistics and supply chain"
+      - "Various industries"
+    tactics:
+      - "Initial access via phishing and exploiting vulnerabilities"
+      - "Credential dumping and privilege escalation"
+      - "Network reconnaissance"
+      - "Data exfiltration before encryption"
+      - "Double extortion tactics"
+    tools:
+      - "BlackBasta ransomware"
+      - "Qbot (Qakbot) for initial access"
+      - "Cobalt Strike"
+      - "Mimikatz for credential theft"
+    maritime_incidents:
+      - "Multiple maritime sector attacks (2022-2023)"
+      - "Targeting of shipping and logistics companies"
+    detection_indicators:
+      - "File encryption with .basta extension"
+      - "Ransom notes in affected directories"
+      - "Data exfiltration to external servers"
+      - "Lateral movement via PsExec and RDP"
+    references:
+      - "US Coast Guard Maritime Cyber Alert 02-23 (BLACKBASTA)"
+      - "FBI and CISA Advisory on BlackBasta"
+
+  - id: TA-003
+    name: "CL0P Ransomware Gang"
+    aliases:
+      - "Cl0p"
+      - "TA505"
+    attribution: "REDACTED"
+    first_observed: "February 2019"
+    active: true
+    sophistication: "Advanced"
+    motivation:
+      - "Financial extortion"
+      - "Mass exploitation campaigns"
+    target_sectors:
+      - "Maritime and shipping"
+      - "Financial services"
+      - "Healthcare"
+      - "Government"
+      - "Critical infrastructure"
+    tactics:
+      - "Mass exploitation of zero-day vulnerabilities"
+      - "Supply chain attacks via third-party software"
+      - "Data theft and extortion"
+      - "Large-scale automated attacks"
+    tools:
+      - "Clop ransomware"
+      - "MOVEit Transfer exploitation"
+      - "FIN11/TA505 toolset"
+    maritime_incidents:
+      - "MOVEit vulnerability exploitation affecting maritime organizations (2023)"
+      - "Mass compromise of file transfer systems"
+    detection_indicators:
+      - ".clop or .Clop file extensions"
+      - "Exploitation of CVE-2023-34362 (MOVEit)"
+      - "Ransom demands with data leak threats"
+      - "Use of TOR-based leak sites"
+    references:
+      - "CISA #StopRansomware: CL0P Ransomware Gang Exploits MOVEit Vulnerability"
+      - "US Coast Guard advisories on ransomware threats"
+      - "CISA Alert AA23-158A"
+
+  - id: TA-004
+    name: "Sandworm"
+    aliases:
+      - "Telebots"
+      - "Voodoo Bear"
+      - "Iron Viking"
+    attribution: "REDACTED"
+    first_observed: "2009"
+    active: true
+    sophistication: "Advanced"
+    motivation:
+      - "Cyber warfare"
+      - "Disruption of critical infrastructure"
+      - "Geopolitical objectives"
+    target_sectors:
+      - "Energy and utilities"
+      - "Maritime and transportation"
+      - "Government"
+      - "Critical infrastructure globally"
+    tactics:
+      - "Wiper malware deployment"
+      - "Supply chain compromise"
+      - "ICS/SCADA targeting"
+      - "Destructive attacks"
+    tools:
+      - "NotPetya"
+      - "Industroyer/CrashOverride"
+      - "BlackEnergy"
+      - "Olympic Destroyer"
+    maritime_incidents:
+      - "NotPetya impact on Maersk and global shipping (2017)"
+      - "Potential targeting of maritime critical infrastructure"
+    detection_indicators:
+      - "Wiper malware signatures"
+      - "MBR (Master Boot Record) corruption"
+      - "Lateral movement using EternalBlue exploit"
+      - "ICS protocol manipulation"
+    references:
+      - "US DOJ Sandworm Indictment"
+      - "Analysis of NotPetya attack on maritime sector"
+
+  - id: TA-005
+    name: "Generic Ransomware-as-a-Service Operators"
+    attribution: "REDACTED"
+    active: true
+    sophistication: "Varies (Low to Intermediate)"
+    motivation:
+      - "Financial gain"
+      - "Opportunistic attacks"
+    target_sectors:
+      - "All sectors including maritime"
+      - "Targets of opportunity"
+    tactics:
+      - "Exploitation of common vulnerabilities"
+      - "Phishing campaigns"
+      - "RDP brute forcing"
+      - "Exploitation of public-facing applications"
+    tools:
+      - "Various ransomware families (REvil, LockBit, Conti, etc.)"
+      - "Penetration testing tools"
+      - "Publicly available exploits"
+    maritime_incidents:
+      - "Numerous opportunistic attacks on maritime organizations"
+      - "Port operations disruptions"
+    detection_indicators:
+      - "Various file encryption patterns"
+      - "RDP login anomalies"
+      - "Known ransomware signatures"
+    references:
+      - "CISA Ransomware Guide"
+      - "US Coast Guard Maritime Cyber Bulletins"
+
+  - id: TA-006
+    name: "APT1 (Comment Crew)"
+    aliases:
+      - "Comment Group"
+      - "Byzantine Candor"
+    attribution: "REDACTED"
+    first_observed: "2006"
+    active: "Status unclear"
+    sophistication: "Advanced"
+    motivation:
+      - "Economic espionage"
+      - "Intellectual property theft"
+      - "Strategic intelligence collection"
+    target_sectors:
+      - "Maritime and shipping"
+      - "Defense industrial base"
+      - "Technology sectors"
+      - "Transportation"
+    tactics:
+      - "Spear phishing"
+      - "Long-term persistence (average 356 days)"
+      - "Data exfiltration"
+      - "Custom malware"
+    tools:
+      - "Custom backdoors"
+      - "RAR archiving for data staging"
+      - "Remote access tools"
+    maritime_incidents:
+      - "Targeting of shipping and maritime companies for IP theft"
+      - "Espionage campaigns against maritime technology firms"
+    detection_indicators:
+      - "Specific malware signatures documented by Mandiant"
+      - "C2 communications to known infrastructure"
+      - "Data staging in RAR archives"
+    references:
+      - "Mandiant APT1 Report (2013)"
+
+  - id: TA-007
+    name: "Iranian Cyber Actors"
+    attribution: "REDACTED"
+    active: true
+    sophistication: "Intermediate to Advanced"
+    motivation:
+      - "Geopolitical objectives"
+      - "Retaliation and deterrence"
+      - "Regional influence"
+    target_sectors:
+      - "Maritime infrastructure in strategic waterways"
+      - "Critical infrastructure"
+      - "Government"
+    tactics:
+      - "Wiper malware"
+      - "DDoS attacks"
+      - "Website defacement"
+      - "Destructive operations"
+    tools:
+      - "Shamoon"
+      - "Various custom tools"
+    maritime_incidents:
+      - "Targeting of maritime infrastructure in Persian Gulf region"
+      - "GPS jamming and interference in Strait of Hormuz area"
+    detection_indicators:
+      - "Wiper malware characteristics"
+      - "DDoS traffic patterns"
+      - "Specific TTPs associated with Iranian groups"
+    references:
+      - "Various intelligence community reports"
+
+  - id: TA-008
+    name: "Insider Threats"
+    attribution: "REDACTED"
+    active: "Ongoing risk"
+    sophistication: "Varies"
+    motivation:
+      - "Financial gain"
+      - "Revenge or grievance"
+      - "Ideology"
+      - "Negligence"
+    target_sectors:
+      - "All maritime organizations"
+    tactics:
+      - "Abuse of authorized access"
+      - "Data exfiltration"
+      - "Sabotage"
+      - "Credential sharing"
+    tools:
+      - "Authorized system access"
+      - "Removable media"
+      - "Email and file sharing"
+    maritime_incidents:
+      - "Various insider threat incidents in maritime sector"
+      - "Data theft by departing employees"
+      - "Sabotage of systems"
+    detection_indicators:
+      - "Unusual data access patterns"
+      - "Off-hours access"
+      - "Large data transfers"
+      - "Policy violations"
+    references:
+      - "CERT Insider Threat Center resources"
+
+metadata:
+  version: "1.0"
+  last_updated: "2025-11-02"
+  total_threat_actors: 8
+  note: |
+    This database focuses on threat actors with documented activity in the maritime sector.
+    General cybercrime and APT groups may also pose threats to maritime organizations
+    even if not specifically targeting the sector.
