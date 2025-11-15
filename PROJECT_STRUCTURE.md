@@ -34,11 +34,6 @@ www-project-top-10-for-maritime-security/
 ├── top10/                          # OWASP Maritime Top 10 deliverables
 │   └── OWASP-Maritime-Top-10-2024.md  # Published Top 10 list
 │
-├── analysis-tools/                  # Python analysis toolkit
-│   ├── vulnerability_analyzer.py   # Risk scoring and analysis
-│   ├── requirements.txt            # Python dependencies
-│   └── README.md                   # Tool documentation
-│
 ├── CONTRIBUTING.md                  # Contribution guidelines
 ├── LICENSE                         # CC-BY-SA 4.0 license
 ├── SECURITY.md                     # Security policy
@@ -171,33 +166,6 @@ The primary deliverable: Maritime-specific Top 10 cybersecurity risks
 
 **Format:** Markdown for web publishing and PDF generation
 
-### Analysis Tools (`analysis-tools/`)
-
-**vulnerability_analyzer.py**
-
-Python tool for analyzing vulnerability database and generating reports
-
-**Features:**
-- Loads and parses YAML vulnerability data
-- Calculates risk scores per methodology
-- Generates analysis reports
-- Exports to CSV and JSON
-- Provides statistical breakdowns
-
-**Usage:**
-```bash
-python vulnerability_analyzer.py --report
-python vulnerability_analyzer.py --export-csv results.csv
-```
-
-**Requirements:** Python 3.7+, PyYAML
-
-**Purpose:**
-- Automate risk scoring
-- Support data-driven decisions
-- Enable reproducible analysis
-- Facilitate updates and iterations
-
 ## Project Phases
 
 ### Phase 1: Data Collection (COMPLETED)
@@ -307,6 +275,7 @@ See CONTRIBUTING.md for submission guidelines.
 
 **Project Leadership:**
 - Faiz Ahmed Zaidi - Project Leader
+- Manish Tripathy - Contributor
 
 **Communication Channels:**
 - GitHub Issues: Technical discussions, bug reports
@@ -321,6 +290,6 @@ See CONTRIBUTING.md for submission guidelines.
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Last Updated:** November 2025  
 **Maintained By:** Project contributors
